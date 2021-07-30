@@ -12,3 +12,8 @@ jobs:
       - setup_remote_docker:
           version: 20.10.6
           docker_layer_caching: true
+
+      - run: |
+          docker build -t cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend .
+          docker login --username iam --password $YA_REGISTRY_KEY
+          docker push cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend
