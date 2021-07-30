@@ -14,6 +14,6 @@ jobs:
           docker_layer_caching: true
 
       - run: |
-          docker build -t cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend .
+          docker build -t cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend:$CIRCLE_BRANCH .
           echo $YA_REGISTRY_KEY | docker login --username json_key --password-stdin cr.yandex
-          docker push cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend
+          docker push cr.yandex/crp3cgu5vnl52hr4ct47/playwright-backend:$CIRCLE_BRANCH
